@@ -21,6 +21,7 @@ export default [{
   output: {
     file: "dist/index.js",
     format: "commonjs",
+    exports: "named"
   },
   plugins: [commonjs()]
 }, {

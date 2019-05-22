@@ -1,6 +1,6 @@
 {
   "name": "is-equal",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "Check file equals",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
