@@ -28,3 +28,6 @@ rollup.config.js
 tsconfig.json
 tslint.json
 index.*
+
+# Dist
+!dist/*
