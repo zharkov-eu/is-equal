@@ -1,0 +1,30 @@
+# Dependency directories
+node_modules/
+
+# Typescript v1 declaration files
+typings/
+
+# Optional npm cache directory
+.npm
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variables file
+.env
+
+# IDE
+.vscode
+.idea
+.vs
+
+# Source / test
+src
+test
+
+# Service files
+.gitignore
+rollup.config.js
+tsconfig.json
+tslint.json
+index.*

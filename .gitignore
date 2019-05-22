@@ -1,0 +1,29 @@
+# Dependency directories
+node_modules/
+
+# Typescript v1 declaration files
+typings/
+
+# Optional npm cache directory
+.npm
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variables file
+.env
+
+# IDE
+.vscode
+.idea
+.vs
+
+# Generated js / js.map
+*.js
+*.js.map
+
+# Rollup config
+!rollup.config.js
+
+# Dist
+dist

@@ -1,0 +1,13 @@
+{
+  "defaultSeverity": "error",
+  "extends": "tslint:recommended",
+  "rules": {
+    "curly": false,
+    "radix": false,
+    "arrow-parens": false,
+    "object-literal-sort-keys": false,
+    "interface-over-type-literal": false,
+    "one-variable-per-declaration": false
+  },
+  "rulesDirectory": []
+}
