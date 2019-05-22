@@ -5,9 +5,9 @@
 Check file content equals
 
 ```js
-const { isFileEquals } = require("is-file-equal")
+const isEqual = require("is-file-equal")
 
 (async () => {
-  console.log(await isFileEquals("pathA", "pathB"))
+  console.log(await isEqual("pathA", "pathB"))
 })();
 ```

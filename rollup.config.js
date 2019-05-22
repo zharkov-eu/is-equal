@@ -20,8 +20,7 @@ export default [{
   input: "index.js",
   output: {
     file: "dist/index.js",
-    format: "commonjs",
-    exports: "named"
+    format: "commonjs"
   },
   plugins: [commonjs()]
 }, {

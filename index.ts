@@ -6,4 +6,6 @@
 "use strict";
 
 export { EnotfileError } from "./src/error";
-export { isFileEquals } from "./src/equals";
+import { isFileEquals } from "./src/equals";
+
+export default isFileEquals;
