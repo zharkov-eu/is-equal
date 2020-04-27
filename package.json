@@ -4,6 +4,7 @@
   "description": "Check file equals",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "files": ["dist/"],
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*.spec.ts",
     "build": "npm run clean && tsc -d --outDir dist",
