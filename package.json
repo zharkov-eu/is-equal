@@ -5,9 +5,12 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc && cross-env NODE_ENV=production rollup -c",
-    "test": "cross-env mocha -r ts-node/register test/**/*.spec.ts",
-    "release": "npm run build && cross-vars git commit -am $npm_package_version && cross-vars git tag $npm_package_version && git push && git push --tags && npm publish"
+    "test": "mocha -r ts-node/register/transpile-only test/**/*.spec.ts",
+    "build": "npm run clean && rollup -c && tsc --build --clean",
+    "clean": "rimraf dist",
+    "format": "prettier --write **/*.{ts,js,jsx,tsx,json,css,md}",
+    "preversion": "npm run test && npm run build",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -17,22 +20,23 @@
     "file",
     "equal"
   ],
-  "author": "Evgeni Zharkov <zharkov.ev.u@yandex.ru>",
+  "author": "Evgenii Zharkov <zharkov.ev.u@yandex.ru>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zharkov-eu/is-equal/issues"
   },
   "homepage": "https://github.com/zharkov-eu/is-equal#readme",
   "devDependencies": {
-    "@types/mocha": "^5.2.6",
-    "cross-env": "^5.2.0",
-    "cross-vars": "^1.1.0",
-    "mocha": "^6.1.4",
-    "rollup": "^1.12.3",
-    "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-dts": "^0.15.1",
-    "ts-node": "^8.1.0",
-    "tslib": "^1.9.3",
-    "typescript": "^3.4.5"
+    "@rollup/plugin-typescript": "4.1.1",
+    "@types/mocha": "7.0.2",
+    "@types/node": "12.12.37",
+    "mocha": "7.1.2",
+    "prettier": "2.0.5",
+    "rimraf": "3.0.2",
+    "rollup": "2.7.2",
+    "rollup-plugin-dts": "1.4.0",
+    "ts-node": "8.9.1",
+    "tslib": "1.11.1",
+    "typescript": "3.8.3"
   }
 }

@@ -3,11 +3,10 @@
  * @author Evgeni Zharkov <zharkov.ev.u@yandex.ru>
  */
 
-"use strict";
+'use strict';
 
-import fs from "fs";
-import { promisify } from "util";
-import { EnotfileError } from "./error";
+import fs from 'fs';
+import { promisify } from 'util';
 
 const bufSize = 16 * 1024;
 const statAsync = promisify(fs.stat);
@@ -21,13 +20,14 @@ const statAsync = promisify(fs.stat);
 export async function isFileEquals(a: string, b: string): Promise<boolean> {
   const statA = await statAsync(a);
   const statB = await statAsync(b);
-  if (!statA.isFile()) throw new EnotfileError(`'${a}' is not a file`);
-  if (!statB.isFile()) throw new EnotfileError(`'${b}' is not a file`);
+  if (!statA.isFile()) throw new EnotfileError(`ENOTFILE: '${a}' is not a file`);
+  if (!statB.isFile()) throw new EnotfileError(`ENOTFILE: '${b}' is not a file`);
 
   if (statA.size !== statB.size) return false;
 
   return new Promise(resolve => {
-    let emitCompare = false, cmpBufSize = 0;
+    let cmpBufSize = 0;
+    let emitCompare = false;
     const cmpBuf = Buffer.allocUnsafe(bufSize);
     const streamA = fs.createReadStream(a, { highWaterMark: bufSize });
     const streamB = fs.createReadStream(b, { highWaterMark: bufSize });
@@ -67,7 +67,14 @@ export async function isFileEquals(a: string, b: string): Promise<boolean> {
       resolve(true);
     };
 
-    streamA.on("data", handleData(streamA, streamB)).on("end", handleEnd);
-    streamB.on("data", handleData(streamB, streamA)).on("end", handleEnd);
+    streamA.on('data', handleData(streamA, streamB)).on('end', handleEnd);
+    streamB.on('data', handleData(streamB, streamA)).on('end', handleEnd);
   });
+}
+
+export class EnotfileError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'ENOTFILE';
+  }
 }

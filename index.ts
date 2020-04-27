@@ -1,11 +1,11 @@
 /*
  * Licensed under the MIT License. See License.txt in the project root for license information.
- * @author Evgeni Zharkov <zharkov.ev.u@yandex.ru>
+ * @author Evgenii Zharkov <zharkov.ev.u@yandex.ru>
  */
 
-"use strict";
+'use strict';
 
-export { EnotfileError } from "./src/error";
-import { isFileEquals } from "./src/equals";
+import { isFileEquals } from './src/equals';
+export { EnotfileError } from './src/equals';
 
 export default isFileEquals;

@@ -1,13 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es2019",
     "module": "commonjs",
-    "sourceMap": true,
     "strict": true,
+    "sourceMap": false,
     "esModuleInterop": true
   },
-  "exclude": [
-    "node_modules",
-    "test/**/*.spec.ts"
-  ]
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
