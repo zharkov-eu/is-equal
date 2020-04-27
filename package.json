@@ -5,11 +5,11 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "mocha -r ts-node/register/transpile-only test/**/*.spec.ts",
-    "build": "npm run clean && rollup -c && tsc --build --clean",
+    "test": "mocha -r ts-node/register test/**/*.spec.ts",
+    "build": "npm run clean && tsc -d --outDir dist",
     "clean": "rimraf dist",
     "format": "prettier --write **/*.{ts,js,jsx,tsx,json,css,md}",
-    "preversion": "npm run test && npm run build",
+    "preversion": "npm run build && npm run test",
     "postversion": "git push && git push --tags"
   },
   "repository": {
@@ -27,16 +27,12 @@
   },
   "homepage": "https://github.com/zharkov-eu/is-equal#readme",
   "devDependencies": {
-    "@rollup/plugin-typescript": "4.1.1",
     "@types/mocha": "7.0.2",
     "@types/node": "12.12.37",
     "mocha": "7.1.2",
     "prettier": "2.0.5",
     "rimraf": "3.0.2",
-    "rollup": "2.7.2",
-    "rollup-plugin-dts": "1.4.0",
     "ts-node": "8.9.1",
-    "tslib": "1.11.1",
     "typescript": "3.8.3"
   }
 }
