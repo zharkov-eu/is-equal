@@ -3,7 +3,7 @@
 import assert from 'assert';
 import 'mocha';
 import path from 'path';
-import isEqual from '../dist/index';
+import isEqual from '../index';
 
 const notExist = path.join(__dirname, 'resource/not-found.jpg');
 const jsLogo = path.join(__dirname, 'resource/js-logo.jpg');
